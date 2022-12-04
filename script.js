@@ -37,12 +37,6 @@ btnTranslate.addEventListener("click", ()=>{
 
         }
     }
-    // fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         toText.value = data.responseData.translatedText
-    //         console.log(data)
-    //     })
 showTranslate()
 
  })
@@ -111,9 +105,6 @@ showTranslate()
                     utterance = new SpeechSynthesisUtterance(toText.value)
                     utterance.lang = toLang.value
                 }
-
-                
-
                 speechSynthesis.speak(utterance)
             }
         })
