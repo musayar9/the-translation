@@ -24,15 +24,31 @@ btnTranslate.addEventListener("click", ()=>{
     const to = toLang.value;
     const url = `https://api.mymemory.translated.net/get?q=${text}!&langpair=${from}|${to}`
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
+    async function showTranslate(){
+        try{
+            const response = await fetch(url)
+            console.log(response)
+            const data = await response.json()
+            console.log(data)
             toText.value = data.responseData.translatedText
-        })
 
 
-    })
+        }catch(err){
 
+        }
+    }
+    // fetch(url)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         toText.value = data.responseData.translatedText
+    //         console.log(data)
+    //     })
+showTranslate()
+
+ })
+
+
+  
 
     ıcon.addEventListener("click", () =>{
        
@@ -61,7 +77,8 @@ btnTranslate.addEventListener("click", ()=>{
                     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
                     const recognition = new SpeechRecognition();
                     recognition.interimResults = true;
-                //  let p = document.createElement("p")
+                    console.log(recognition)
+               
                  recognition.addEventListener("result", (e)=>{
 
                     const text = Array.from(e.results)
@@ -69,8 +86,7 @@ btnTranslate.addEventListener("click", ()=>{
                     .map(result => result.transcript)
                     .join("");
 
-                    // p.innerText=text;
-                    // fromText.appendChild(p)
+                   
 
                     fromText.innerText = text
                     console.log(text)
@@ -79,9 +95,7 @@ btnTranslate.addEventListener("click", ()=>{
                     
                  })
 
-                //  recognition.addEventListener('end', () =>{
-                //     recognition.start()
-                //  })
+        
                recognition.start()
                 }
 
@@ -105,21 +119,3 @@ btnTranslate.addEventListener("click", ()=>{
         })
     }
 
-    
-    // for(let ıconArea of icons){
-    //     ıconArea.addEventListener("click", (element)=>{
-    //         if(element.target.classList.contains("fa-copy")){
-    //             if(element.target.id == "from"){
-    //                 console.log("from copy")
-    //             }else{
-    //                 console.log("to copy")
-    //             }
-    //         }else{
-    //             if(element.target.id == "from"){
-    //                 console.log("volume from")
-    //             }else{
-    //                 console.log("volume to")
-    //             }
-    //         }
-    //     })
-    // }
