@@ -10,8 +10,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-
   background-color: rgb(252, 252, 252);
 }
 
@@ -76,6 +74,4 @@ i {
   -webkit-text-stroke-width: 12px;
   -webkit-text-stroke-color: #0d6efd;
   -webkit-text-stroke: 1px #0d6efd;
-
 }
-
